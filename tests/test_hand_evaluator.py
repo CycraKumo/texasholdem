@@ -19,14 +19,14 @@ def get_cards(suits=SUITS, ranks=RANKS):
     """
     指定されたスートとランクのカードのリストを返します。
 
-    Parameters:
-    - suits (list): 使用するスートのリスト。指定しない場合、すべてのスートが使用されます。
-    - ranks (list): 使用するランクのリスト。指定しない場合、すべてのランクが使用されます。
+    Args:
+        suits (list[str]): 使用するスートのリスト。指定しない場合、すべてのスートが使用されます。
+        ranks (list[str]): 使用するランクのリスト。指定しない場合、すべてのランクが使用されます。
 
     Returns:
-    - list: 指定されたスートとランクのカードのリスト。
-    """
+        list[Card]: 指定されたスートとランクのカードのリスト。
 
+    """
     return [Card(suit, rank) for suit in suits for rank in ranks]
 
 
@@ -42,8 +42,9 @@ def get_cards_from_ranks(ranks):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_royal_flush(suit):
-    """ロイヤルストレートフラッシュであることを確認"""
+    """ロイヤルストレートフラッシュであることを確認
 
+    """
     hand = get_cards(suit, ["A", "K", "Q", "J", "10"])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.ROYAL_FLUSH.strength
@@ -51,8 +52,9 @@ def test_royal_flush(suit):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_non_royal_flush(suit):
-    """ロイヤルストレートフラッシュでないことを確認"""
+    """ロイヤルストレートフラッシュでないことを確認
 
+    """
     hand = get_cards([suit], ["A", "K", "Q", "J", "9"])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength != HandCategory.ROYAL_FLUSH.strength
@@ -60,8 +62,9 @@ def test_non_royal_flush(suit):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_max_straight_flush(suit):
-    """ストレートフラッシュの最高ランクであることを確認"""
+    """ストレートフラッシュの最高ランクであることを確認
 
+    """
     hand = get_cards(suit, ["K", "Q", "J", "10", "9"])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.STRAIGHT_FLUSH.strength
@@ -70,8 +73,9 @@ def test_max_straight_flush(suit):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_min_straight_flush(suit):
-    """ストレートフラッシュの最低ランクであることを確認"""
+    """ストレートフラッシュの最低ランクであることを確認
 
+    """
     hand = get_cards(suit, ["5", "4", "3", "2", "A"])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.STRAIGHT_FLUSH.strength
@@ -80,7 +84,9 @@ def test_min_straight_flush(suit):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_middle_straight_flush(suit):
-    """ストレートフラッシュの中間ランクであることを確認"""
+    """ストレートフラッシュの中間ランクであることを確認
+
+    """
     for straight in generate_straights():
         hand = get_cards(suit, straight)
         category, rank = evaluator.evaluate_five(hand)
@@ -90,8 +96,9 @@ def test_middle_straight_flush(suit):
 
 @pytest.mark.parametrize("suit", SUITS)
 def test_non_straight_flush(suit):
-    """ストレートフラッシュでないことを確認"""
+    """ストレートフラッシュでないことを確認
 
+    """
     hand = get_cards([suit], ["K", "Q", "J", "10", "8"])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength != HandCategory.STRAIGHT_FLUSH.strength
@@ -99,8 +106,9 @@ def test_non_straight_flush(suit):
 
 @pytest.mark.parametrize("rank", RANKS)
 def test_four_of_a_kind(rank):
-    """4カードであることを確認"""
+    """4カードであることを確認
 
+    """
     hand = get_cards(["♤", "♡", "♢", "♧"], [rank])
 
     if rank == "A":
@@ -117,7 +125,9 @@ def test_four_of_a_kind(rank):
 
 @pytest.mark.parametrize("three_rank, two_rank", [(r1, r2) for r1 in RANKS for r2 in RANKS if r1 != r2])
 def test_full_house(three_rank, two_rank):
-    """フルハウスであることを確認"""
+    """フルハウスであることを確認
+
+    """
     hand = get_cards(["♤", "♡", "♢"], [three_rank]) + get_cards(["♤", "♡"], [two_rank])
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.FULL_HOUSE.strength
@@ -127,7 +137,9 @@ def test_full_house(three_rank, two_rank):
 @pytest.mark.parametrize("suit", SUITS)
 @pytest.mark.parametrize("ranks", [r for r in combinations(RANKS, 5) if not evaluator.is_straight([Card("♤", rank) for rank in r])[0]])
 def test_flush(suit, ranks):
-    """フラッシュであることを確認"""
+    """フラッシュであることを確認
+
+    """
     hand = get_cards(suit, ranks)
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.FLUSH.strength
@@ -147,7 +159,9 @@ def test_flush(suit, ranks):
     (["10", "J", "Q", "K", "A"], 14),
 ])
 def test_straight(ranks, top_rank):
-    """境界値と中間のランクのストレートであることを確認"""
+    """境界値と中間のランクのストレートであることを確認
+
+    """
     hand = get_cards_from_ranks(ranks)
     category, rank = evaluator.evaluate_five(hand)
     assert category.strength == HandCategory.STRAIGHT.strength
@@ -160,7 +174,9 @@ def test_straight(ranks, top_rank):
     ["10", "J", "Q", "A", "2"]
 ])
 def test_not_straight(ranks):
-    """ストレートでないことを確認"""
+    """ストレートでないことを確認
+
+    """
     hand = get_cards_from_ranks(ranks)
     category, _ = evaluator.evaluate_five(hand)
     assert category.strength != HandCategory.STRAIGHT.strength
@@ -168,8 +184,9 @@ def test_not_straight(ranks):
 
 @pytest.mark.parametrize("triple_rank", ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"])
 def test_three_of_a_kind(triple_rank):
-    """スリー・オブ・ア・カインドであることを確認"""
+    """スリー・オブ・ア・カインドであることを確認
 
+    """
     # 3枚の同じランクのカードを取得
     triple_cards = get_cards_from_ranks([triple_rank, triple_rank, triple_rank])
 
@@ -190,8 +207,9 @@ def test_three_of_a_kind(triple_rank):
 
 @pytest.mark.parametrize("pair1_rank, pair2_rank", combinations(RANKS, 2))
 def test_two_pair(pair1_rank, pair2_rank):
-    """ツーペアであることを確認"""
+    """ツーペアであることを確認
 
+    """
     # 2組のペアのカードを取得
     pair1_cards = get_cards_from_ranks([pair1_rank, pair1_rank])
     pair2_cards = get_cards_from_ranks([pair2_rank, pair2_rank])
@@ -213,8 +231,9 @@ def test_two_pair(pair1_rank, pair2_rank):
 
 @pytest.mark.parametrize("pair_rank", HandEvaluator.RANKS.keys())
 def test_one_pair(pair_rank):
-    """ワンペアであることを確認"""
+    """ワンペアであることを確認
 
+    """
     # ペアのカードを取得
     pair_cards = get_cards_from_ranks([pair_rank, pair_rank])
 
@@ -233,8 +252,9 @@ def test_one_pair(pair_rank):
 
 
 def test_high_card():
-    """ハイカードであることを確認"""
+    """ハイカードであることを確認
 
+    """
     # 5枚の異なるランクのカードを取得
     hand_ranks = random.sample(RANKS, 5)
     hand = get_cards_from_ranks(hand_ranks)
@@ -250,8 +270,9 @@ def test_high_card():
 
 
 def test_individual_check():
-    """スリー・オブ・ア・カインドであることを確認"""
+    """スリー・オブ・ア・カインドであることを確認
 
+    """
     hand = [Card("♢", "A"), Card("♡", "A")]
     community_card = [Card("♤", "A"), Card("♡", "2"), Card("♤", "Q"), Card("♤", "8"), Card("♧", "7")]
 

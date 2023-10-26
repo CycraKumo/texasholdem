@@ -1,10 +1,4 @@
 {
-    "python.testing.pytestArgs": [
-        "tests"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "python.analysis.extraPaths": [
-        "src"
-    ]
+    "iis.configDir": "",
+    "esbonio.sphinx.confDir": "${workspaceFolder}\\docs\\sphinx_src\\source",
 }

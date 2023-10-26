@@ -1,49 +1,38 @@
 class InputHandler:
-    """
-    ユーザーからの入力を処理するクラス。
+    """ユーザーからの入力を処理するクラス。
+
+    Attributes:
+        message_handler (MessageHandler): メッセージ処理のインスタンス。
+
+    Tests:
+        [ ]: test_input_handler
+
     """
 
     def __init__(self, message_handler):
-        """
-        InputHandler クラスのコンストラクタ。
+        """InputHandler クラスのコンストラクタ。
 
-        Parameters:
-        - message_handler (MessageHandler): メッセージ処理のインスタンス。
+        Args:
+            message_handler (MessageHandler): メッセージ処理のインスタンス。
+
         """
         self.message_handler = message_handler
 
     def get_player_name(self):
-        """
-        プレイヤーの名前を入力として取得します。
+        """プレイヤーの名前を入力として取得します。
 
         Returns:
-        - str: 入力されたプレイヤーの名前。
+            str: 入力されたプレイヤーの名前。
+
         """
         return input(self.message_handler.get_message("enter_player_name"))
 
-    def get_game_mode(self):
-        """
-        ゲームモードを入力として取得します。
-
-        Returns:
-        - int: 入力されたゲームモード。
-        """
-        while True:
-            try:
-                num_cpu = int(input(self.message_handler.get_message("enter_game_mode")))
-                if 1 <= num_cpu <= 2:
-                    return num_cpu
-                else:
-                    print(self.message_handler.get_message("invalid_range", min=1, max=2))
-            except ValueError:
-                print(self.message_handler.get_message("invalid_input"))
-
     def get_initial_chips(self):
-        """
-        プレイヤーの初期チップ数を入力として取得します。
+        """プレイヤーの初期チップ数を入力として取得します。
 
         Returns:
-        - int: 入力された初期チップ数。
+            int: 入力された初期チップ数。
+
         """
         while True:
             try:
@@ -52,11 +41,11 @@ class InputHandler:
                 print(self.message_handler.get_message("invalid_input"))
 
     def get_num_cpu(self):
-        """
-        参加するCPUの数を入力として取得します。
+        """参加するCPUの数を入力として取得します。
 
         Returns:
-        - int: 入力されたCPUの数。
+            int: 入力されたCPUの数。
+
         """
         while True:
             try:
@@ -69,22 +58,35 @@ class InputHandler:
                 print(self.message_handler.get_message("invalid_input"))
 
     def wait_for_user(self):
-        """
-        プレイヤーの入力を待機するメソッド。
+        """プレイヤーの入力を待機するメソッド。
+
         """
         return input()
 
-    def select_action(self, available_actions):
-        """
-        利用可能なアクションの中からアクションを選択する。
+    def continue_to_game(self):
+        """ゲームを続けるかやめるかを選択するメソッド。
 
-        Parameters:
-        - available_actions (list): 選択可能なアクションのリスト。
+        """
+        while True:
+            try:
+                continue_to_game = int(input(self.message_handler.get_message("continue_to_game")))
+                if 0 <= continue_to_game <= 1:
+                    return continue_to_game
+                else:
+                    print(self.message_handler.get_message("invalid_range", min=0, max=1))
+            except ValueError:
+                print(self.message_handler.get_message("invalid_input"))
+
+    def select_action(self, available_actions):
+        """利用可能なアクションの中からアクションを選択する。
+
+        Args:
+            available_actions (list[str]): 選択可能なアクションのリスト。
 
         Returns:
-        - str: 選択されたアクション。
-        """
+            str: 選択されたアクション。
 
+        """
         available_actions_list = []
         for i, action in enumerate(available_actions):
             available_actions_list.append(f"{i}: {action}")
@@ -97,8 +99,15 @@ class InputHandler:
                 print(self.message_handler.get_message("invalid_action"))
 
     def select_bet_amount(self, min_amount, max_amount):
-        """
-        ベットまたはレイズの額を選択する。
+        """ベットまたはレイズの額を選択する。
+
+        Args:
+            min_amount (int): 最小ベット、またはレイズ額。
+            max_amount (int): 最大ベット、またはレイズ額。
+
+        Returns:
+            int: 選択されたベット、またはレイズ額。
+
         """
         while True:
             amount = int(input(self.message_handler.get_message("enter_bet_amount", min_amount=min_amount, max_amount=max_amount)))

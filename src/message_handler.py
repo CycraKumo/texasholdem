@@ -1,16 +1,29 @@
 class MessageHandler:
     """
     ゲーム内のメッセージを管理するクラス。
+
+    Attributes:
+        messages (dict[str, str]): 表示する文言の一覧。
+
+    Tests:
+        [ ]: test_message_manager
+
     """
 
     def __init__(self):
-        """
-        MessageHandler クラスのコンストラクタ。
+        """MessageHandler クラスのコンストラクタ。
+
         """
         self.messages = {
+            "user_list": "ユーザー一覧",
+            "user_input": "ユーザー名を入力してください:",
+            "welcome_user": "ようこそ, {user_name}!",
+            "now_chips": "現在のチップ: {chips}",
+            "add_user": "{user_name} として新規登録します。",
+            "initial_chips": "初期チップ: {initial_chips} が付与されました。",
             "enter_player_name": "プレイヤーの名前を入力してください: ",
             "enter_game_mode": "ゲームモードを選択してください 1:リミット 2:ポットリミット 3:ノーリミット : ",
-            "enter_initial_chips": "初期チップの数を入力してください: ",
+            "enter_initial_chips": "ゲームに持ち込むチップの数を入力してください: ",
             "enter_num_cpu": "参加するCPUの数を入力してください: ",
             "invalid_input": "無効な入力です。もう一度入力してください。",
             "invalid_range": "無効な範囲です。{min}～{max}の範囲で入力して下さい。",
@@ -27,32 +40,33 @@ class MessageHandler:
             "win_player": "{player_name} - チップ獲得: {get_chips} → 合計: {chips}\n",
             "main_pot": "メインポット勝者",
             "side_pot": "サイドポット{index}勝者",
+            "continue_to_game": "0: つづける 1: やめる : "
             # 他のメッセージも必要に応じて追加してください
         }
 
     def get_message(self, key, **kwargs):
-        """
-        キーに対応するメッセージを返します。必要に応じて文字列のフォーマットも行います。
+        """キーに対応するメッセージを返す。必要に応じて文字列のフォーマットも行う。
 
-        Parameters:
-        - key (str): メッセージのキー。
-        - **kwargs: フォーマット用の変数。
+        Args:
+            key (str): メッセージのキー。
+            ``**kwarg``: フォーマット用の変数。
 
         Returns:
-        - str: 対応するメッセージ。
+            str: 対応するメッセージ。
+
         """
         return self.messages.get(key, "メッセージが見つかりません。").format(**kwargs)
 
     def display_players_info(self, players, columns_to_display=["PlayerName", "Chips", "Hand", "Bet", "DB", "Action"]):
-        """
-        プレイヤーの情報をカスタマイズされた表形式で表示するメソッド。
+        """プレイヤーの情報をカスタマイズされた表形式で表示する。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
-        - columns_to_display (list): 表示したい項目のリスト。Noneの場合はすべて表示。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+            columns_to_display (list[str]): 表示したい項目のリスト。Noneの場合はすべて表示。
 
         Returns:
-        - str: プレイヤー情報の表。
+            str: プレイヤー情報の表。
+
         """
         # カラム毎の最大長さ導出
         column_max_widths = {}
@@ -138,12 +152,12 @@ class MessageHandler:
         return header + body + footer
 
     def display_community_cards(self, community_cards, pots):
-        """
-        コミュニティカードとポットの情報を表示します。
+        """コミュニティカードとポットの情報を表示する。
 
-        Parameters:
-        - community_cards (list): コミュニティカードとして表示するカードのリスト。
-        - pot (int): ポットの現在の合計額。
+        Args:
+            community_cards (list[Card]): コミュニティカードとして表示するカードのリスト。
+            pot (int): ポットの現在の合計額。
+
         """
         print(self.get_message("community_cards"), end=" ")
         for card in community_cards:

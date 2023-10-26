@@ -3,8 +3,15 @@ from itertools import combinations
 
 
 class HandCategory(Enum):
-    """
-    ハンドカテゴリの強さと日本語名を定義するクラス。
+    """ハンドカテゴリの強さと日本語名を定義するクラス。
+
+    Attributes:
+        name_jp (str): 手の強さの日本語名。
+        strength (int): 手の強さの数値。
+
+    Tests:
+        [ ]: test_hand_category
+
     """
     HIGH_CARD = ("ハイカード", auto())
     ONE_PAIR = ("ワンペア", auto())
@@ -18,13 +25,23 @@ class HandCategory(Enum):
     ROYAL_FLUSH = ("ロイヤルフラッシュ", auto())
 
     def __init__(self, name_jp, strength):
+        """HandCategory クラスのコンストラクタ。
+
+        Args:
+            name_jp (str): 手の強さの日本語名。
+            strength (int): 手の強さの数値。
+
+        """
         self.name_jp = name_jp
         self.strength = strength
 
 
 class HandEvaluator:
-    """
-    ハンドの強さを比較するクラス。
+    """ハンドの強さを比較するクラス。
+
+    Tests:
+        [ ]: test_hand_evaluator
+
     """
     RANKS = {str(i): i for i in range(2, 11)}
     RANKS.update({"J": 11, "Q": 12, "K": 13, "A": 14})
@@ -33,29 +50,29 @@ class HandEvaluator:
         pass
 
     def evaluate_hand(self, player_hand, community_cards):
-        """
-        プレイヤーの手とコミュニティカードからもっとも強い５枚を選定し、そのハンドのカテゴリトランクを返すメソッド。
+        """プレイヤーの手とコミュニティカードからもっとも強い５枚を選定し、そのハンドのカテゴリトランクを返すメソッド。
 
-        Parameters:
-        - player_hand (list): 2枚のカードのリスト。
-        - community_cards (list): 5枚のカードのリスト。
+        Args:
+            player_hand (list[Card]): 2枚のカードのリスト。
+            community_cards (list[Card]): 5枚のカードのリスト。
 
         Returns:
-        - tuple: そのプレイヤー最も強いハンドカテゴリとそのランク。
+            tuple[HandCategory, list[int]]: そのプレイヤー最も強いハンドカテゴリとそのランク。
+
         """
         combined_cards = player_hand + community_cards
         best_category, best_rank = self.best_hand_from_seven(combined_cards)
         return best_category, best_rank
 
     def best_hand_from_seven(self, cards):
-        """
-        7枚のカードから最も強い5枚の手を構築します。
+        """7枚のカードから最も強い5枚の手を構築する。
 
-        Parameters:
-        - seven_cards (list): 7枚のカードのリスト。
+        Args:
+            seven_cards (list[Card]): 7枚のカードのリスト。
 
         Returns:
-        - tuple: そのプレイヤー最も強いハンドカテゴリとそのランク。
+            tuple[HandCategory, list[int]]: そのプレイヤー最も強いハンドカテゴリとそのランク。
+
         """
         best_category = None
         best_rank = None
@@ -71,14 +88,14 @@ class HandEvaluator:
         return best_category, best_rank
 
     def evaluate_five(self, cards):
-        """
-        各ハンドカテゴリの評価メソッドを順に試すメソッド。
+        """各ハンドカテゴリの評価メソッドを順に試すメソッド。
 
-        Parameters:
-        - seven_cards (list): 5枚のカードのリスト。
+        Args:
+            seven_cards (list[Card]): 5枚のカードのリスト。
 
         Returns:
-        - tuple: 渡されたハンドのカテゴリとそのランク。
+            tuple[HandCategory, list[int]]: 渡されたハンドのカテゴリとそのランク。
+
         """
         for hand_evaluator in [self.is_royal_flush, self.is_straight_flush, self.is_four_of_a_kind, self.is_full_house,
                                self.is_flush, self.is_straight, self.is_three_of_a_kind, self.is_two_pair,
@@ -89,14 +106,14 @@ class HandEvaluator:
         return None, None
 
     def is_royal_flush(self, cards):
-        """
-        ロイヤルフラッシュかどうかを判定します。
+        """ロイヤルフラッシュかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         straight_flush_result = self.is_straight_flush(cards)
         if straight_flush_result[0] is not None:
@@ -107,14 +124,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_straight_flush(self, cards):
-        """
-        ストレートフラッシュかどうかを判定します。
+        """ストレートフラッシュかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         flush_result = self.is_flush(cards)
         straight_result = self.is_straight(cards)
@@ -124,14 +141,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_four_of_a_kind(self, cards):
-        """
-        フォーカードかどうかを判定します。
+        """フォーカードかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         rank_counts = self.get_rank_counts(cards)
         four_of_a_kind_rank = [rank for rank, count in rank_counts.items() if count == 4]
@@ -141,14 +158,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_full_house(self, cards):
-        """
-        フルハウスかどうかを判定します。
+        """フルハウスかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         rank_counts = self.get_rank_counts(cards)
         three_of_a_kind_rank = [self.RANKS[rank] for rank, count in rank_counts.items() if count == 3]
@@ -158,14 +175,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_flush(self, cards):
-        """
-        フラッシュかどうかを判定します。
+        """フラッシュかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         suits = [card.suit for card in cards]
         if len(set(suits)) == 1:
@@ -174,14 +191,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_straight(self, cards):
-        """
-        ストレートかどうかを判定します。
+        """ストレートかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         # カードのランクをセットに変換
         ranks = set([self.RANKS[card.rank] for card in cards])
@@ -200,14 +217,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_three_of_a_kind(self, cards):
-        """
-        スリーカードかどうかを判定します。
+        """スリーカードかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         rank_counts = self.get_rank_counts(cards)
         three_of_a_kind_rank = [self.RANKS[rank] for rank, count in rank_counts.items() if count == 3]
@@ -217,14 +234,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_two_pair(self, cards):
-        """
-        ツーペアかどうかを判定します。
+        """ツーペアかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         rank_counts = self.get_rank_counts(cards)
         pairs = [self.RANKS[rank] for rank, count in rank_counts.items() if count == 2]
@@ -234,14 +251,14 @@ class HandEvaluator:
         return (None, None)
 
     def is_one_pair(self, cards):
-        """
-        ワンペアかどうかを判定します。
+        """ワンペアかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         rank_counts = self.get_rank_counts(cards)
         pairs = [self.RANKS[rank] for rank, count in rank_counts.items() if count == 2]
@@ -251,27 +268,27 @@ class HandEvaluator:
         return (None, None)
 
     def is_high_card(self, cards):
-        """
-        ハイカードかどうかを判定します。
+        """ハイカードかどうかを判定する。
 
-        Parameters:
-        - cards (list): カードクラスのインスタンスのリスト。
+        Args:
+            cards (list[Card]): カードクラスのインスタンスのリスト。
 
         Returns:
-        - tuple: (ハンドカテゴリ, ランク) または (None, None)
+            tuple[HandCategory, list[int]]: (ハンドカテゴリ, ランク) または (None, None)
+
         """
         ranks = sorted([self.RANKS[card.rank] for card in cards], reverse=True)
         return (HandCategory.HIGH_CARD, ranks[:5])
 
     def get_rank_counts(self, sorted_combination):
-        """
-        各ランクのカウントを取得する。
+        """各ランクのカウントを取得する。
 
-        Parameters:
-        - sorted_combination (list): ソートされたカードの組み合わせ。
+        Args:
+            sorted_combination (list[Card]): ソートされたカードの組み合わせ。
 
         Returns:
-        - dict: 各ランクのカウント。
+            dict[str, int]: 各ランクのカウント。
+
         """
         rank_counts = {}
         for card in sorted_combination:

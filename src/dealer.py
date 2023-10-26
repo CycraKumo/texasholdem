@@ -4,42 +4,56 @@ from pot import Pot
 
 
 class Dealer:
-    """
-    ディーラーを表すクラス。
-    ゲームを進行させる役割を持っています。
+    """ディーラーを表すクラス。
+
+    ゲームを進行させる役割を持っている。
+
+    Attributes:
+        deck (Deck): デッキのインスタンス。
+        message_handler (MessageHandler): メッセージ処理のインスタンス。
+        input_handler (InputHandler): 入力処理のインスタンス。
+        pots (list[Pot]): メインポット、サイドポット。
+        bet_record (list[int]): 直前のベット額の記録。
+        community_cards (list[Card]): コミュニティカード。
+        hand_evaluator (HandEvaluator): ハンド比較のインスタンス。
+
+    Tests:
+        [ ]: test_dealer
+
     """
 
     def __init__(self, message_handler, input_handler):
-        """
-        ディーラーを初期化します。
-        新しいデッキを持ってゲームを開始します。
+        """ディーラーを初期化する。
 
-        Parameters:
-        - message_handler (MessageHandler): メッセージ処理のインスタンス。
-        - input_handler (InputHandler): 入力処理のインスタンス。
+        新しいデッキを持ってゲームを開始する。
+
+        Args:
+            message_handler (MessageHandler): メッセージ処理のインスタンス。
+            input_handler (InputHandler): 入力処理のインスタンス。
+
         """
         self.deck = Deck()
         self.message_handler = message_handler
         self.input_handler = input_handler
         self.pots = [Pot()]
+        self.bet_record = []
         self.community_cards = []
         self.hand_evaluator = HandEvaluator()
 
     def burn_card(self):
-        """
-        バーンカードを行います。
+        """バーンカードを行う。
         """
         self.deck.draw()
 
     def set_initial_button(self, players):
-        """
-        ディーラーボタンの初期配置を決定します。
+        """ディーラーボタンの初期配置を決定する。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
 
         Returns:
-        - Player: ディーラーボタンを持つプレイヤー。
+            Player: ディーラーボタンを持つプレイヤー。
+
         """
 
         # バーンカード処理
@@ -62,11 +76,11 @@ class Dealer:
         return dealer_player
 
     def deal_hole_cards(self, players):
-        """
-        各プレイヤーに2枚のホールカードを配るメソッド。
+        """各プレイヤーに2枚のホールカードを配るメソッド。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+
         """
         # バーンカード
         self.burn_card()
@@ -87,18 +101,19 @@ class Dealer:
             current_player = players[(start_position + i) % len(players)]
             current_player.hand.append(self.deck.draw())
 
-    def bet_round(self, players, round, big_blind=2):
-        """
-        ベットラウンドのアクションを処理します。
+    def bet_round(self, players, big_blind=2):
+        """ベットラウンドのアクションを処理する。
 
         ディーラーボタンの3つ隣からアクションを開始し、すべてのプレイヤーが
-        同じベット額になるか、すべてのプレイヤーがアクションを完了するまで続行します。
+        同じベット額になるか、すべてのプレイヤーがアクションを完了するまで続行する。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+            big_blind (int): ビッグブラインド。
 
         Returns:
-        - active_players (list): この先もアクションをする人のリスト。
+            list[Player]: この先もアクションをする人のリスト。
+
         """
         # アクション開始位置をディーラーボタンの3つ隣からに設定
         start_index = [player.is_dealer for player in players].index(True) + 3
@@ -106,9 +121,6 @@ class Dealer:
 
         for player in players:
             player.has_acted = False
-
-        previous_player_bet_or_raise = big_blind
-        raise_difference = big_blind
 
         while True:
 
@@ -140,7 +152,7 @@ class Dealer:
 
                 action_list = ["fold"]
 
-                if player.current_bet < current_max_bet:
+                if len(self.bet_record) >= 2:
                     # プレイヤーがコールするためのチップが不足している場合、オールイン
                     if player.chips <= current_max_bet - player.current_bet:
                         action_list.append("all-in")
@@ -158,7 +170,8 @@ class Dealer:
                         action_list.append("bet")
 
                 # プレイヤーのアクション選択
-                action = player.select_action(action_list)
+                player_action_list = [last_action.last_action[:-1] for last_action in players if last_action.name != player.name]
+                action = player.select_action(action_list, len(active_players), player_action_list)
 
                 if action == "fold":
                     player.fold()
@@ -173,8 +186,8 @@ class Dealer:
                     player.last_action.append("Call")
 
                 elif action == "bet":
-                    # 最低ベット額はビッグブラインドまたはcurrent_max_bet
-                    min_bet = big_blind
+                    # 最低ベット額はビッグブラインド
+                    min_bet = big_blind * 2 - player.current_bet
                     # プレイヤーのチップがmin_betよりも少ない場合、プレイヤーのチップをmin_betとする
                     if player.chips < min_bet:
                         min_bet = player.chips
@@ -185,20 +198,15 @@ class Dealer:
                     else:
                         player.last_action.append("Bet")
                     player.bet(bet_amount)
-                    raise_difference = bet_amount
+                    # raise_difference = bet_amount
                     current_max_bet = bet_amount
-                    previous_player_bet_or_raise = bet_amount
+                    self.bet_record.append(player.current_bet)
+                    # previous_player_bet_or_raise = bet_amount
                     player.last_bet_amount = bet_amount
 
                 elif action == "raise":
-                    # オープンレイズの場合
-                    if current_max_bet == big_blind:
-                        min_raise = 2 * big_blind
-                    # それ以外のレイズの場合
-                    else:
-                        # 直前のプレイヤーの上乗せされた額
-                        call_amount = current_max_bet - player.current_bet
-                        min_raise = call_amount + raise_difference
+                    # 配列の最後とその１個前の値を引き算する。
+                    min_raise = self.bet_record[-1] - self.bet_record[-2] + self.bet_record[-1] - player.current_bet
 
                     # プレイヤーのチップがmin_raiseよりも少ない場合、プレイヤーのチップをmin_raiseとする
                     if player.chips < min_raise:
@@ -209,8 +217,6 @@ class Dealer:
 
                     # プレイヤーのベットを更新
                     current_max_bet = raise_amount
-                    raise_difference = current_max_bet - previous_player_bet_or_raise
-                    previous_player_bet_or_raise = raise_amount
 
                     if raise_amount == player.chips:
                         player.is_all_in = True
@@ -218,6 +224,7 @@ class Dealer:
                     else:
                         player.last_action.append("Raise")
                     player.bet(raise_amount)
+                    self.bet_record.append(player.current_bet)
 
                     player.last_bet_amount = raise_amount
 
@@ -228,7 +235,6 @@ class Dealer:
                     player.is_all_in = True
                     if all_in_amount > current_max_bet:
                         current_max_bet = all_in_amount
-                        previous_player_bet_or_raise = all_in_amount
                         player.last_bet_amount = all_in_amount
 
                 player.has_acted = True
@@ -251,19 +257,24 @@ class Dealer:
 
                 if len(active_players_bet) >= 1 and active_players_acted:
                     # ポットの回収、フロップの公開に進む
+                    self.bet_record = [0]
                     return active_players
 
                 # すべてのアクティブプレイヤーがオール・インしたかどうかをチェック
                 all_in_players = [player for player in active_players if player.is_all_in]
                 if len(all_in_players) == len(active_players) and active_players_acted:
+                    self.bet_record = [0]
                     return active_players
 
     def pot_collect(self, players):
-        """
-        プレイヤーの賭け金をポットとして集める
+        """プレイヤーの賭け金をポットとして集める。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+
+        Returns:
+            int: ポットの合計値。
+
         """
         active_bets = sorted({player.current_bet for player in players if not player.is_folded})
 
@@ -298,13 +309,15 @@ class Dealer:
         return sum(pot.total for pot in self.pots)
 
     def reveal_community_cards(self, num_cards):
-        """
-        指定された枚数のコミュニティカードを公開する
+        """指定された枚数のコミュニティカードを公開する。
 
-        Parameters:
-        - num_cards (int): 公開するカードの枚数
-        """
+        Args:
+            num_cards (int): 公開するカードの枚数
 
+        Returns:
+            list[Card]: コミュニティカード。
+
+        """
         self.burn_card()
 
         for _ in range(num_cards):
@@ -314,11 +327,11 @@ class Dealer:
         return self.community_cards
 
     def distribute_pots(self, active_players):
-        """
-        アクティブなプレイヤーの手を評価し、ポットを分配します。
+        """アクティブなプレイヤーの手同士を評価し、ポットを分配します。
 
-        Parameters:
-        - active_players (list): アクティブなプレイヤーのリスト。
+        Args:
+            active_players (list[Player]): アクティブなプレイヤーのリスト。
+
         """
         ranked_players = sorted(active_players, key=lambda player: (player.hand_category.strength, player.hand_rank), reverse=True)
 
@@ -343,11 +356,11 @@ class Dealer:
                 print(self.message_handler.get_message("win_player", player_name=winner.name, get_chips=get_chips, chips=winner.chips))
 
     def evaluate_and_fold_players(self, active_players):
-        """
-        アクティブなプレイヤーの手を評価し、ポットを分配します。
+        """アクティブなプレイヤーの手を評価する。
 
-        Parameters:
-        - active_players (list): アクティブなプレイヤーのリスト。
+        Args:
+            active_players (list[Player]): アクティブなプレイヤーのリスト。
+
         """
         for player in active_players:
             player.hand_category, player.hand_rank = self.hand_evaluator.evaluate_hand(player.hand, self.community_cards)
@@ -358,11 +371,11 @@ class Dealer:
         self.distribute_pots(active_players)
 
     def distribute_pot(self, players):
-        """
-        勝ったプレイヤーにポットを渡す。
+        """勝ったプレイヤーにポットを渡す。
 
-        Parameters:
-        - players (list): プレイヤーのリスト。
+        Args:
+            players (list[Player]): プレイヤーのリスト。
+
         """
 
         # 改めてフォールドしていないプレイヤーのリストを作成
@@ -375,11 +388,11 @@ class Dealer:
             print(self.message_handler.get_message("win_player", player_name=player.name, get_chips=get_chips, chips=player.chips))
 
     def reset_round(self, players):
-        """
-        ラウンドの終了後に必要な情報をリセットします。
+        """ラウンドの終了後に必要な情報をリセットする。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+
         """
         # 1. 各プレイヤーのカレントベットと手札をリセット
         for player in players:
@@ -399,15 +412,18 @@ class Dealer:
         # 3. ポットのリセット
         self.pots = [Pot()]
 
+        # 4. 別途履歴のリセット
+        self.bet_record = []
+
         # n. その他の必要な情報をリセット
         # 必要に応じて追加してください。
 
     def move_dealer_button(self, players):
-        """
-        ディーラーボタンを次のプレイヤーに移動します
+        """ディーラーボタンを次のプレイヤーに移動します。
 
-        Parameters:
-        - players (list): Playerクラスのインスタンスのリスト。
+        Args:
+            players (list[Player]): Playerクラスのインスタンスのリスト。
+
         """
         # 現在のディーラーの位置を取得
         current_dealer_index = [player.is_dealer for player in players].index(True)
