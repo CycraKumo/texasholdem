@@ -6,19 +6,19 @@ class Player:
     プレイヤーの状態を管理するクラス。
 
     Attributes:
-        name (str):
-        chips (str):
-        input_handler (InputHandler):
-        hand (list[Card]):
-        current_bet (int):
-        last_action (list[str]):
-        is_dealer (bool):
-        is_cpu (bool, optical):
-        has_acted (bool):
-        is_folded (bool):
-        is_all_in (bool):
-        hand_category (HandCategory):
-        hand_rank (list[int]):
+        name (str): プレイヤーの名前。
+        chips (str): プレイヤーが所持しているチップ
+        input_handler (InputHandler): 入力処理のインスタンス。
+        hand (list[Card]): プレイヤーが所持しているハンド。
+        current_bet (int): プレイヤーが現在かけている金額。
+        last_action (list[str]): プレイヤーが行ったアクションの一覧。
+        is_dealer (bool): ディーラーボタンの所持フラグ。
+        is_cpu (bool, optical): CPUであるかどうか。
+        has_acted (bool): そのラウンド中アクションをする必要がないかのフラグ。
+        is_folded (bool): フォールドしているかのフラグ。
+        is_all_in (bool): オール・インしているかのフラグ。
+        hand_category (HandCategory): プレイヤーが所持している手のカテゴリ。
+        hand_rank (list[int]): プレイヤーが所持している手のランク。
 
     Tests:
         [ ]: test_player
@@ -48,6 +48,7 @@ class Player:
         self.is_all_in = False
         self.hand_category = None
         self.hand_rank = None
+        self.rebuy_count = 0
 
     def bet(self, amount):
         """プレイヤーがベットするメソッド。
@@ -68,7 +69,7 @@ class Player:
         return actual_bet
 
     def fold(self):
-        """プレイヤーをフォールド状態にします。
+        """プレイヤーをフォールド状態にする。
         """
         self.hand = []
         self.is_folded = True
@@ -114,19 +115,20 @@ class Player:
         """
         return self.input_handler.select_action(available_actions)
 
-    def select_bet_amount(self, min_amount):
+    def select_bet_amount(self, min_amount, max_amount):
         """ベットまたはレイズの額を選択する。
 
         Args:
             min_amount (int): 最小ベット額。
+            max_amount (int): 最大ベット額
 
         Returns:
             int: 選択されたベットまたはレイズの額。
 
         """
-        return self._cpu_select_bet_amount(min_amount) if self.is_cpu else self._player_select_bet_amount(min_amount)
+        return self._cpu_select_bet_amount(min_amount, max_amount) if self.is_cpu else self._player_select_bet_amount(min_amount, max_amount)
 
-    def _cpu_select_bet_amount(self, min_amount):
+    def _cpu_select_bet_amount(self, min_amount, max_amount):
         """CPUとしてのベットまたはレイズの額を選択する。
 
         Args:
@@ -136,9 +138,9 @@ class Player:
             int: 選択されたベットまたはレイズの額。
 
         """
-        return random.randint(min_amount, self.chips)
+        return random.randint(min_amount, max_amount)
 
-    def _player_select_bet_amount(self, min_amount):
+    def _player_select_bet_amount(self, min_amount, max_amount):
         """プレイヤーとしてのベットまたはレイズの額を選択する。
 
         Args:
@@ -148,4 +150,4 @@ class Player:
             int: 選択されたベットまたはレイズの額。
 
         """
-        return self.input_handler.select_bet_amount(min_amount, self.chips)
+        return self.input_handler.select_bet_amount(min_amount, max_amount)

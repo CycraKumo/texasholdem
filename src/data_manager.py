@@ -102,3 +102,19 @@ class DataManager:
         if user_name in self.data:
             del self.data[user_name]
             self.save_data()
+
+    def get_or_create_user_data(self, user_name, default_chips=10000):
+        """指定されたユーザー名のデータを取得し、存在しない場合は新しいユーザーを追加する。
+
+        Args:
+            user_name (str): ユーザー名。
+            default_chips (int): 新しいユーザーに割り当てる初期チップ数。
+
+        Returns:
+            dict: ユーザーデータ。
+        """
+        user_data = self.get_user_data(user_name)
+        if user_data is None:
+            self.add_new_user(user_name, default_chips)
+            user_data = self.get_user_data(user_name)
+        return user_data

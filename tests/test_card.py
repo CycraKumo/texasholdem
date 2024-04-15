@@ -5,7 +5,7 @@ def test_card_initialization():
     """
     Cardクラスの初期化をテストします。
 
-    Tests：
+    Tests:
         有効なスートとランクでの正しい初期化。
         無効なスートを指定した場合のエラー発生。
         無効なランクを指定した場合のエラー発生。
@@ -20,7 +20,7 @@ def test_card_str_representation():
     """
     Cardクラスの文字列表現をテストします。
 
-    Tests：
+    Tests:
         さまざまなスートとランクの組み合わせでの正しい文字列表現。
     """
     card1 = Card("♤", "A")
@@ -40,7 +40,7 @@ def test_card_representation():
     """
     Cardクラスのprint部分をテストします。
 
-    Tests：
+    Tests:
         さまざまなスートとランクの組み合わせでの正しい文字列表現。
     """
     card1 = Card("♤", "A")

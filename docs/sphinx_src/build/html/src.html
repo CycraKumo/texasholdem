@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src package &mdash; texasholdem 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            texasholdem
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">src package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.card">src.card module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.card.Card"><code class="docutils literal notranslate"><span class="pre">Card</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.data_manager">src.data_manager module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.data_manager.DataManager"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.dealer">src.dealer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.dealer.Dealer"><code class="docutils literal notranslate"><span class="pre">Dealer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.deck">src.deck module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.deck.Deck"><code class="docutils literal notranslate"><span class="pre">Deck</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.game">src.game module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.hand_evaluator">src.hand_evaluator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.hand_evaluator.HandCategory"><code class="docutils literal notranslate"><span class="pre">HandCategory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.hand_evaluator.HandEvaluator"><code class="docutils literal notranslate"><span class="pre">HandEvaluator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.input_handler">src.input_handler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.input_handler.InputHandler"><code class="docutils literal notranslate"><span class="pre">InputHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.main">src.main module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.main.Main"><code class="docutils literal notranslate"><span class="pre">Main</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.message_handler">src.message_handler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.message_handler.MessageHandler"><code class="docutils literal notranslate"><span class="pre">MessageHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.player">src.player module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.player.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.pot">src.pot module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.pot.Pot"><code class="docutils literal notranslate"><span class="pre">Pot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src.pre_flop_hand_rank">src.pre_flop_hand_rank module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src.pre_flop_hand_rank.get_hand_rank"><code class="docutils literal notranslate"><span class="pre">get_hand_rank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src.pre_flop_hand_rank.get_hand_rank_dict"><code class="docutils literal notranslate"><span class="pre">get_hand_rank_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">texasholdem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">src package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-package">
+<h1>src package<a class="headerlink" href="#src-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.card">
+<span id="src-card-module"></span><h2>src.card module<a class="headerlink" href="#module-src.card" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.card.Card">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.card.</span></span><span class="sig-name descname"><span class="pre">Card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.card.Card" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">カードを表すクラス。</p>
+<p class="linemarker linemarker-3">各カードはスートとランクの組み合わせで表される。test</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.card.Card.suit">
+<span class="sig-name descname"><span class="pre">suit</span></span><a class="headerlink" href="#src.card.Card.suit" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-7">カードのスート。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-9">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.card.Card.rank">
+<span class="sig-name descname"><span class="pre">rank</span></span><a class="headerlink" href="#src.card.Card.rank" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-13">カードのランク。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-15">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-18">[x]: test_card</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.card.Card.VALID_RANKS">
+<span class="sig-name descname"><span class="pre">VALID_RANKS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['2',</span> <span class="pre">'3',</span> <span class="pre">'4',</span> <span class="pre">'5',</span> <span class="pre">'6',</span> <span class="pre">'7',</span> <span class="pre">'8',</span> <span class="pre">'9',</span> <span class="pre">'10',</span> <span class="pre">'J',</span> <span class="pre">'Q',</span> <span class="pre">'K',</span> <span class="pre">'A']</span></em><a class="headerlink" href="#src.card.Card.VALID_RANKS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.card.Card.VALID_SUITS">
+<span class="sig-name descname"><span class="pre">VALID_SUITS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['♤',</span> <span class="pre">'♡',</span> <span class="pre">'♢',</span> <span class="pre">'♧']</span></em><a class="headerlink" href="#src.card.Card.VALID_SUITS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.card.Card.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.card.Card.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">カードを初期化する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>suit</strong> (<em>str</em>) – カードのスート (”♤”, “♡”, “♢”, “♧”)</p></li>
+<li><p><strong>rank</strong> (<em>str</em>) – カードのランク (“2”-“10”, “J”, “Q”, “K”, “A”)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – VALID_RANK、VALID_SUIT以外が渡された時に発生。</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-11">[x]: test_card_initialization</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.card.Card.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.card.Card.__repr__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">カードのオブジェクト表現を返す。</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Returns:</dt><dd><p class="linemarker linemarker-4">str: カードのオブジェクトを文字列表記。</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-7">[x]: test_card_representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.card.Card.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.card.Card.__str__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">カードの文字列表現を返す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>カードのランクとスートを並べた文字列。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-7">[x]: test_card_str_representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.data_manager">
+<span id="src-data-manager-module"></span><h2>src.data_manager module<a class="headerlink" href="#module-src.data_manager" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.data_manager.DataManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.data_manager.</span></span><span class="sig-name descname"><span class="pre">DataManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">データを管理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.data_file_path">
+<span class="sig-name descname"><span class="pre">data_file_path</span></span><a class="headerlink" href="#src.data_manager.DataManager.data_file_path" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">データが保存されるファイルのパス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.data_manager.DataManager.data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-11">ロードしたデータ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-13">dict[str, obj]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-16">[ ]: test_data_manager</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">DataManagerクラスの初期化。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – データが保存されるファイルのパス。</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-7">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.add_new_user">
+<span class="sig-name descname"><span class="pre">add_new_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.add_new_user" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">新しいデータ名を追加し、初期データを設定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_name</strong> (<em>str</em>) – データ名。</p></li>
+<li><p><strong>initial_data</strong> (<em>obj</em>) – 初期データ。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.delete_user">
+<span class="sig-name descname"><span class="pre">delete_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.delete_user" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">指定されたデータ名を削除する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_name</strong> (<em>str</em>) – データ名。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.get_user_data">
+<span class="sig-name descname"><span class="pre">get_user_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.get_user_data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">指定されたデータを取得する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_name</strong> (<em>str</em>) – データ名。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>取得したデータ。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>obj</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-10">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.load_data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">データをデータファイルから読み込む。</p>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-4">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.save_data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">データをデータファイルに保存する。</p>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-4">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.data_manager.DataManager.update_user_data">
+<span class="sig-name descname"><span class="pre">update_user_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.data_manager.DataManager.update_user_data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">指定されたデータを更新する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_name</strong> (<em>str</em>) – データ名。</p></li>
+<li><p><strong>data</strong> (<em>obj</em>) – 更新するデータ。</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-9">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.dealer">
+<span id="src-dealer-module"></span><h2>src.dealer module<a class="headerlink" href="#module-src.dealer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dealer.Dealer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dealer.</span></span><span class="sig-name descname"><span class="pre">Dealer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">ディーラーを表すクラス。</p>
+<p class="linemarker linemarker-3">ゲームを進行させる役割を持っている。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.deck">
+<span class="sig-name descname"><span class="pre">deck</span></span><a class="headerlink" href="#src.dealer.Dealer.deck" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-7">デッキのインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-9"><a class="reference internal" href="#src.deck.Deck" title="src.deck.Deck">Deck</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.message_handler">
+<span class="sig-name descname"><span class="pre">message_handler</span></span><a class="headerlink" href="#src.dealer.Dealer.message_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-13">メッセージ処理のインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-15"><a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler">MessageHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.input_handler">
+<span class="sig-name descname"><span class="pre">input_handler</span></span><a class="headerlink" href="#src.dealer.Dealer.input_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-19">入力処理のインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-21"><a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler">InputHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.pots">
+<span class="sig-name descname"><span class="pre">pots</span></span><a class="headerlink" href="#src.dealer.Dealer.pots" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-25">メインポット、サイドポット。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-27">list[<a class="reference internal" href="#src.pot.Pot" title="src.pot.Pot">Pot</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.bet_record">
+<span class="sig-name descname"><span class="pre">bet_record</span></span><a class="headerlink" href="#src.dealer.Dealer.bet_record" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-31">直前のベット額の記録。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-33">list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.community_cards">
+<span class="sig-name descname"><span class="pre">community_cards</span></span><a class="headerlink" href="#src.dealer.Dealer.community_cards" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-37">コミュニティカード。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-39">list[<a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dealer.Dealer.hand_evaluator">
+<span class="sig-name descname"><span class="pre">hand_evaluator</span></span><a class="headerlink" href="#src.dealer.Dealer.hand_evaluator" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-43">ハンド比較のインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-45"><a class="reference internal" href="#src.hand_evaluator.HandEvaluator" title="src.hand_evaluator.HandEvaluator">HandEvaluator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-48">[ ]: test_dealer</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ディーラーを初期化する。</p>
+<p class="linemarker linemarker-3">新しいデッキを持ってゲームを開始する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message_handler</strong> (<a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler"><em>MessageHandler</em></a>) – メッセージ処理のインスタンス。</p></li>
+<li><p><strong>input_handler</strong> (<a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler"><em>InputHandler</em></a>) – 入力処理のインスタンス。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.bet_round">
+<span class="sig-name descname"><span class="pre">bet_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">big_blind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.bet_round" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ベットラウンドのアクションを処理する。</p>
+<p class="linemarker linemarker-3">ディーラーボタンの3つ隣からアクションを開始し、すべてのプレイヤーが
+同じベット額になるか、すべてのプレイヤーがアクションを完了するまで続行する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p></li>
+<li><p><strong>big_blind</strong> (<em>int</em>) – ビッグブラインド。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>この先もアクションをする人のリスト。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#src.player.Player" title="src.player.Player">Player</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.burn_card">
+<span class="sig-name descname"><span class="pre">burn_card</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.burn_card" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">バーンカードを行う。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.deal_card">
+<span class="sig-name descname"><span class="pre">deal_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.deal_card" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーにカードを配る。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – プレイヤーのリスト</p></li>
+<li><p><strong>start_potision</strong> (<em>int</em><em>, </em><em>optional</em>) – カードをどこから配るか。デフォルト0。</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-9">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.deal_hole_cards">
+<span class="sig-name descname"><span class="pre">deal_hole_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.deal_hole_cards" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">各プレイヤーに2枚のホールカードを配るメソッド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.distribute_pot">
+<span class="sig-name descname"><span class="pre">distribute_pot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.distribute_pot" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">勝ったプレイヤーにポットを渡す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – プレイヤーのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.distribute_pots">
+<span class="sig-name descname"><span class="pre">distribute_pots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.distribute_pots" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">アクティブなプレイヤーの手同士を評価し、ポットを分配します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>active_players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – アクティブなプレイヤーのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.evaluate_and_fold_players">
+<span class="sig-name descname"><span class="pre">evaluate_and_fold_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active_players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.evaluate_and_fold_players" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">アクティブなプレイヤーの手を評価する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>active_players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – アクティブなプレイヤーのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.get_dealer_button_index">
+<span class="sig-name descname"><span class="pre">get_dealer_button_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.get_dealer_button_index" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ディーラーボタンからいくつ隣かを返す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – プレイヤーのリスト。</p></li>
+<li><p><strong>count</strong> (<em>int</em><em>, </em><em>optional</em>) – いくつ隣か。</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-9">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.move_dealer_button">
+<span class="sig-name descname"><span class="pre">move_dealer_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.move_dealer_button" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ディーラーボタンを次のプレイヤーに移動します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.pot_collect">
+<span class="sig-name descname"><span class="pre">pot_collect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.pot_collect" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの賭け金をポットとして集める。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ポットの合計値。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.reset_round">
+<span class="sig-name descname"><span class="pre">reset_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.reset_round" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ラウンドの終了後に必要な情報をリセットする。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.reveal_community_cards">
+<span class="sig-name descname"><span class="pre">reveal_community_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.reveal_community_cards" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">指定された枚数のコミュニティカードを公開する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_cards</strong> (<em>int</em>) – 公開するカードの枚数</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>コミュニティカード。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.selected_action">
+<span class="sig-name descname"><span class="pre">selected_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_max_bet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.selected_action" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">選択されたアクションによってプレイヤーの状態を変化させるメソッド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>action</strong> (<em>str</em>) – 選択されたアクション。</p></li>
+<li><p><strong>player</strong> (<a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a>) – アクションを選択したプレイヤー。</p></li>
+<li><p><strong>current_max_bet</strong> (<em>int</em>) – 現在の最大賭け金。</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-11">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.set_action_list">
+<span class="sig-name descname"><span class="pre">set_action_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bet_record</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_max_bet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.set_action_list" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーごとのアクションリストを作成。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> (<a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a>) – アクションを行うプレイヤー。</p></li>
+<li><p><strong>bet_record</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – 全プレイヤーのアクションの履歴。</p></li>
+<li><p><strong>current_max_bet</strong> (<em>int</em>) – 現在の最大賭け金。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>実行できるアクションが入ったリスト</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-14">[ ]:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dealer.Dealer.set_initial_button">
+<span class="sig-name descname"><span class="pre">set_initial_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dealer.Dealer.set_initial_button" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ディーラーボタンの初期配置を決定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ディーラーボタンを持つプレイヤー。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#src.player.Player" title="src.player.Player">Player</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.deck">
+<span id="src-deck-module"></span><h2>src.deck module<a class="headerlink" href="#module-src.deck" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.deck.Deck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.deck.</span></span><span class="sig-name descname"><span class="pre">Deck</span></span><a class="headerlink" href="#src.deck.Deck" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">デッキを表すクラス。</p>
+<p class="linemarker linemarker-3">52枚のカードからなる標準的なデッキを持つ。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.deck.Deck.cards">
+<span class="sig-name descname"><span class="pre">cards</span></span><a class="headerlink" href="#src.deck.Deck.cards" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-7">カードのリスト。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-9">list[<a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-12">[ ]: test_deck</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deck.Deck.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deck.Deck.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">デッキを初期化し、52枚のカードを生成する。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deck.Deck.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deck.Deck.draw" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">デッキの一番上のカードを引く。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>引いたカード。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deck.Deck.generate_deck">
+<span class="sig-name descname"><span class="pre">generate_deck</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deck.Deck.generate_deck" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">52枚のカードを生成する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>シャッフルされたカードのリスト。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deck.Deck.shuffle">
+<span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deck.Deck.shuffle" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">デッキ内のカードをシャッフルする。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>, </em><em>optical</em>) – カードのリスト。</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.game">
+<span id="src-game-module"></span><h2>src.game module<a class="headerlink" href="#module-src.game" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chips</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">メインロジックを管理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.game.Game.message_handler">
+<span class="sig-name descname"><span class="pre">message_handler</span></span><a class="headerlink" href="#src.game.Game.message_handler" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7"><a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler">MessageHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.game.Game.input_handler">
+<span class="sig-name descname"><span class="pre">input_handler</span></span><a class="headerlink" href="#src.game.Game.input_handler" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-13"><a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler">InputHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.game.Game.dealer">
+<span class="sig-name descname"><span class="pre">dealer</span></span><a class="headerlink" href="#src.game.Game.dealer" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-19"><a class="reference internal" href="#src.dealer.Dealer" title="src.dealer.Dealer">Dealer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.game.Game.player_name">
+<span class="sig-name descname"><span class="pre">player_name</span></span><a class="headerlink" href="#src.game.Game.player_name" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-25">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.game.Game.chips">
+<span class="sig-name descname"><span class="pre">chips</span></span><a class="headerlink" href="#src.game.Game.chips" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-31">int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-34">[ ]: test_game</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chips</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Gameクラスのインスタンスを初期化する。</p>
+<p class="linemarker linemarker-3">必要なインスタンス変数の初期化や他のクラスのインスタンス化を行う。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.collect_blinds">
+<span class="sig-name descname"><span class="pre">collect_blinds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.collect_blinds" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Small BlindとBig Blindを徴収します。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.display_game_state">
+<span class="sig-name descname"><span class="pre">display_game_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.display_game_state" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲームの現在の状態を表示します。</p>
+<p class="linemarker linemarker-3">プレイヤー情報、コミュニティカードなど</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.main_process">
+<span class="sig-name descname"><span class="pre">main_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.main_process" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲームのメインロジックを実行する。</p>
+<p class="linemarker linemarker-3">プリフロップ、フロップ、ターン、リバーなどの各段階での処理を行う。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.pre_process">
+<span class="sig-name descname"><span class="pre">pre_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.pre_process" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲーム開始前の処理を行う。</p>
+<p class="linemarker linemarker-3">例: プレイヤーの登録、初期配置のセットアップなど</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.game.Game.start_game">
+<span class="sig-name descname"><span class="pre">start_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.game.Game.start_game" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲームを開始する。</p>
+<p class="linemarker linemarker-3">ゲームの開始時の前処理とメイン処理を順に実行する。</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.hand_evaluator">
+<span id="src-hand-evaluator-module"></span><h2>src.hand_evaluator module<a class="headerlink" href="#module-src.hand_evaluator" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hand_evaluator.</span></span><span class="sig-name descname"><span class="pre">HandCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandCategory" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p class="linemarker linemarker-1">ハンドカテゴリの強さと日本語名を定義するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.name_jp">
+<span class="sig-name descname"><span class="pre">name_jp</span></span><a class="headerlink" href="#src.hand_evaluator.HandCategory.name_jp" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">手の強さの日本語名。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.strength">
+<span class="sig-name descname"><span class="pre">strength</span></span><a class="headerlink" href="#src.hand_evaluator.HandCategory.strength" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-11">手の強さの数値。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-13">int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-16">[ ]: test_hand_category</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.FLUSH">
+<span class="sig-name descname"><span class="pre">FLUSH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('フラッシュ',</span> <span class="pre">6)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.FLUSH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.FOUR_OF_A_KIND">
+<span class="sig-name descname"><span class="pre">FOUR_OF_A_KIND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('フォーカード',</span> <span class="pre">8)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.FOUR_OF_A_KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.FULL_HOUSE">
+<span class="sig-name descname"><span class="pre">FULL_HOUSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('フルハウス',</span> <span class="pre">7)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.FULL_HOUSE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.HIGH_CARD">
+<span class="sig-name descname"><span class="pre">HIGH_CARD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ハイカード',</span> <span class="pre">1)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.HIGH_CARD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.ONE_PAIR">
+<span class="sig-name descname"><span class="pre">ONE_PAIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ワンペア',</span> <span class="pre">2)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.ONE_PAIR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.ROYAL_FLUSH">
+<span class="sig-name descname"><span class="pre">ROYAL_FLUSH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ロイヤルフラッシュ',</span> <span class="pre">10)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.ROYAL_FLUSH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.STRAIGHT">
+<span class="sig-name descname"><span class="pre">STRAIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ストレート',</span> <span class="pre">5)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.STRAIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.STRAIGHT_FLUSH">
+<span class="sig-name descname"><span class="pre">STRAIGHT_FLUSH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ストレートフラッシュ',</span> <span class="pre">9)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.STRAIGHT_FLUSH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.THREE_OF_A_KIND">
+<span class="sig-name descname"><span class="pre">THREE_OF_A_KIND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('スリーカード',</span> <span class="pre">4)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.THREE_OF_A_KIND" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandCategory.TWO_PAIR">
+<span class="sig-name descname"><span class="pre">TWO_PAIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ツーペア',</span> <span class="pre">3)</span></em><a class="headerlink" href="#src.hand_evaluator.HandCategory.TWO_PAIR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.hand_evaluator.</span></span><span class="sig-name descname"><span class="pre">HandEvaluator</span></span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">ハンドの強さを比較するクラス。</p>
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-4">[ ]: test_hand_evaluator</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.RANKS">
+<span class="sig-name descname"><span class="pre">RANKS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'10':</span> <span class="pre">10,</span> <span class="pre">'2':</span> <span class="pre">2,</span> <span class="pre">'3':</span> <span class="pre">3,</span> <span class="pre">'4':</span> <span class="pre">4,</span> <span class="pre">'5':</span> <span class="pre">5,</span> <span class="pre">'6':</span> <span class="pre">6,</span> <span class="pre">'7':</span> <span class="pre">7,</span> <span class="pre">'8':</span> <span class="pre">8,</span> <span class="pre">'9':</span> <span class="pre">9,</span> <span class="pre">'A':</span> <span class="pre">14,</span> <span class="pre">'J':</span> <span class="pre">11,</span> <span class="pre">'K':</span> <span class="pre">13,</span> <span class="pre">'Q':</span> <span class="pre">12}</span></em><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.RANKS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.best_hand_from_seven">
+<span class="sig-name descname"><span class="pre">best_hand_from_seven</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.best_hand_from_seven" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">7枚のカードから最も強い5枚の手を構築する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seven_cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – 7枚のカードのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>そのプレイヤー最も強いハンドカテゴリとそのランク。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.evaluate_five">
+<span class="sig-name descname"><span class="pre">evaluate_five</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.evaluate_five" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">各ハンドカテゴリの評価メソッドを順に試すメソッド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seven_cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – 5枚のカードのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>渡されたハンドのカテゴリとそのランク。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.evaluate_hand">
+<span class="sig-name descname"><span class="pre">evaluate_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_hand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">community_cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.evaluate_hand" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの手とコミュニティカードからもっとも強い５枚を選定し、そのハンドのカテゴリトランクを返すメソッド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player_hand</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – 2枚のカードのリスト。</p></li>
+<li><p><strong>community_cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – 5枚のカードのリスト。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>そのプレイヤー最も強いハンドカテゴリとそのランク。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.get_rank_counts">
+<span class="sig-name descname"><span class="pre">get_rank_counts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sorted_combination</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.get_rank_counts" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">各ランクのカウントを取得する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sorted_combination</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – ソートされたカードの組み合わせ。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>各ランクのカウント。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_flush">
+<span class="sig-name descname"><span class="pre">is_flush</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_flush" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">フラッシュかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_four_of_a_kind">
+<span class="sig-name descname"><span class="pre">is_four_of_a_kind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_four_of_a_kind" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">フォーカードかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_full_house">
+<span class="sig-name descname"><span class="pre">is_full_house</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_full_house" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">フルハウスかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_high_card">
+<span class="sig-name descname"><span class="pre">is_high_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_high_card" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ハイカードかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_one_pair">
+<span class="sig-name descname"><span class="pre">is_one_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_one_pair" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ワンペアかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_royal_flush">
+<span class="sig-name descname"><span class="pre">is_royal_flush</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_royal_flush" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ロイヤルフラッシュかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_straight">
+<span class="sig-name descname"><span class="pre">is_straight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_straight" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ストレートかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_straight_flush">
+<span class="sig-name descname"><span class="pre">is_straight_flush</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_straight_flush" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ストレートフラッシュかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_three_of_a_kind">
+<span class="sig-name descname"><span class="pre">is_three_of_a_kind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_three_of_a_kind" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">スリーカードかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.hand_evaluator.HandEvaluator.is_two_pair">
+<span class="sig-name descname"><span class="pre">is_two_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cards</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.hand_evaluator.HandEvaluator.is_two_pair" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ツーペアかどうかを判定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – カードクラスのインスタンスのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(ハンドカテゴリ, ランク) または (None, None)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a>, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.input_handler">
+<span id="src-input-handler-module"></span><h2>src.input_handler module<a class="headerlink" href="#module-src.input_handler" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.input_handler.</span></span><span class="sig-name descname"><span class="pre">InputHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">ユーザーからの入力を処理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.message_handler">
+<span class="sig-name descname"><span class="pre">message_handler</span></span><a class="headerlink" href="#src.input_handler.InputHandler.message_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">メッセージ処理のインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7"><a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler">MessageHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-10">[ ]: test_input_handler</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">InputHandler クラスのコンストラクタ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message_handler</strong> (<a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler"><em>MessageHandler</em></a>) – メッセージ処理のインスタンス。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.continue_to_game">
+<span class="sig-name descname"><span class="pre">continue_to_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.continue_to_game" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲームを続けるかやめるかを選択するメソッド。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.get_initial_chips">
+<span class="sig-name descname"><span class="pre">get_initial_chips</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.get_initial_chips" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの初期チップ数を入力として取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>入力された初期チップ数。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.get_num_cpu">
+<span class="sig-name descname"><span class="pre">get_num_cpu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.get_num_cpu" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">参加するCPUの数を入力として取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>入力されたCPUの数。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.get_player_name">
+<span class="sig-name descname"><span class="pre">get_player_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.get_player_name" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの名前を入力として取得します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>入力されたプレイヤーの名前。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.select_action">
+<span class="sig-name descname"><span class="pre">select_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.select_action" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">利用可能なアクションの中からアクションを選択する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>available_actions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – 選択可能なアクションのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>選択されたアクション。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.select_bet_amount">
+<span class="sig-name descname"><span class="pre">select_bet_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.select_bet_amount" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ベットまたはレイズの額を選択する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_amount</strong> (<em>int</em>) – 最小ベット、またはレイズ額。</p></li>
+<li><p><strong>max_amount</strong> (<em>int</em>) – 最大ベット、またはレイズ額。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>選択されたベット、またはレイズ額。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.input_handler.InputHandler.wait_for_user">
+<span class="sig-name descname"><span class="pre">wait_for_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.input_handler.InputHandler.wait_for_user" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの入力を待機するメソッド。</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.main">
+<span id="src-main-module"></span><h2>src.main module<a class="headerlink" href="#module-src.main" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.main.Main">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.main.</span></span><span class="sig-name descname"><span class="pre">Main</span></span><a class="headerlink" href="#src.main.Main" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">メインロジックのクラスです。</p>
+<p class="linemarker linemarker-3">ユーザーデータの読み込みやゲームロジックの実行を行います。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.main.Main.message_handler">
+<span class="sig-name descname"><span class="pre">message_handler</span></span><a class="headerlink" href="#src.main.Main.message_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-7">メッセージクラスのインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-9"><a class="reference internal" href="#src.message_handler.MessageHandler" title="src.message_handler.MessageHandler">MessageHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.main.Main.input_handler">
+<span class="sig-name descname"><span class="pre">input_handler</span></span><a class="headerlink" href="#src.main.Main.input_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-13">ユーザー入力クラスのインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-15"><a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler">InputHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.main.Main.data_manager">
+<span class="sig-name descname"><span class="pre">data_manager</span></span><a class="headerlink" href="#src.main.Main.data_manager" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-19">データマネージャークラスのインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-21"><a class="reference internal" href="#src.data_manager.DataManager" title="src.data_manager.DataManager">DataManager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-24">[ ]: test_main</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.main.Main.CURRENT_DIR">
+<span class="sig-name descname"><span class="pre">CURRENT_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'c:\\Users\\hikar\\python\\texasholdem\\src'</span></em><a class="headerlink" href="#src.main.Main.CURRENT_DIR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.main.Main.USER_DATA_PATH">
+<span class="sig-name descname"><span class="pre">USER_DATA_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'c:\\Users\\hikar\\python\\texasholdem\\src\\..\\data\\user_data.json'</span></em><a class="headerlink" href="#src.main.Main.USER_DATA_PATH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.main.Main.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.main.Main.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">コンストラクタ。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.main.Main.display_users_list">
+<span class="sig-name descname"><span class="pre">display_users_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.main.Main.display_users_list" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの一覧を表示する。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.main.Main.handle_user_data">
+<span class="sig-name descname"><span class="pre">handle_user_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.main.Main.handle_user_data" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ユーザーデータの処理: 存在するかどうかを確認し、チップを取得または設定する。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.main.Main.input_user_name">
+<span class="sig-name descname"><span class="pre">input_user_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.main.Main.input_user_name" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ユーザーからの入力を受け付ける。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.main.Main.start_game_flow">
+<span class="sig-name descname"><span class="pre">start_game_flow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.main.Main.start_game_flow" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ゲームをスタートする。</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.message_handler">
+<span id="src-message-handler-module"></span><h2>src.message_handler module<a class="headerlink" href="#module-src.message_handler" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.message_handler.</span></span><span class="sig-name descname"><span class="pre">MessageHandler</span></span><a class="headerlink" href="#src.message_handler.MessageHandler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">ゲーム内のメッセージを管理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler.messages">
+<span class="sig-name descname"><span class="pre">messages</span></span><a class="headerlink" href="#src.message_handler.MessageHandler.messages" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">表示する文言の一覧。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7">dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-10">[ ]: test_message_manager</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.message_handler.MessageHandler.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">MessageHandler クラスのコンストラクタ。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler.display_community_cards">
+<span class="sig-name descname"><span class="pre">display_community_cards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">community_cards</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pots</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.message_handler.MessageHandler.display_community_cards" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">コミュニティカードとポットの情報を表示する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>community_cards</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.card.Card" title="src.card.Card"><em>Card</em></a><em>]</em>) – コミュニティカードとして表示するカードのリスト。</p></li>
+<li><p><strong>pot</strong> (<em>int</em>) – ポットの現在の合計額。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler.display_players_info">
+<span class="sig-name descname"><span class="pre">display_players_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_to_display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['PlayerName',</span> <span class="pre">'Chips',</span> <span class="pre">'Hand',</span> <span class="pre">'Bet',</span> <span class="pre">'DB',</span> <span class="pre">'Action']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.message_handler.MessageHandler.display_players_info" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーの情報をカスタマイズされた表形式で表示する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>players</strong> (<em>list</em><em>[</em><a class="reference internal" href="#src.player.Player" title="src.player.Player"><em>Player</em></a><em>]</em>) – Playerクラスのインスタンスのリスト。</p></li>
+<li><p><strong>columns_to_display</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – 表示したい項目のリスト。Noneの場合はすべて表示。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>プレイヤー情報の表。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.message_handler.MessageHandler.get_message">
+<span class="sig-name descname"><span class="pre">get_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.message_handler.MessageHandler.get_message" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">キーに対応するメッセージを返す。必要に応じて文字列のフォーマットも行う。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – メッセージのキー。</p></li>
+<li><p><strong>**kwarg</strong> – フォーマット用の変数。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>対応するメッセージ。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.player">
+<span id="src-player-module"></span><h2>src.player module<a class="headerlink" href="#module-src.player" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.player.Player">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.player.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chips</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">プレイヤーの状態を管理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#src.player.Player.name" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">プレイヤーの名前。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.chips">
+<span class="sig-name descname"><span class="pre">chips</span></span><a class="headerlink" href="#src.player.Player.chips" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-11">プレイヤーが所持しているチップ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-13">str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.input_handler">
+<span class="sig-name descname"><span class="pre">input_handler</span></span><a class="headerlink" href="#src.player.Player.input_handler" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-17">入力処理のインスタンス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-19"><a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler">InputHandler</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.hand">
+<span class="sig-name descname"><span class="pre">hand</span></span><a class="headerlink" href="#src.player.Player.hand" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-23">プレイヤーが所持しているハンド。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-25">list[<a class="reference internal" href="#src.card.Card" title="src.card.Card">Card</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.current_bet">
+<span class="sig-name descname"><span class="pre">current_bet</span></span><a class="headerlink" href="#src.player.Player.current_bet" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-29">プレイヤーが現在かけている金額。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-31">int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.last_action">
+<span class="sig-name descname"><span class="pre">last_action</span></span><a class="headerlink" href="#src.player.Player.last_action" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-35">プレイヤーが行ったアクションの一覧。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-37">list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.is_dealer">
+<span class="sig-name descname"><span class="pre">is_dealer</span></span><a class="headerlink" href="#src.player.Player.is_dealer" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-41">ディーラーボタンの所持フラグ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-43">bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.is_cpu">
+<span class="sig-name descname"><span class="pre">is_cpu</span></span><a class="headerlink" href="#src.player.Player.is_cpu" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-47">CPUであるかどうか。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-49">bool, optical</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.has_acted">
+<span class="sig-name descname"><span class="pre">has_acted</span></span><a class="headerlink" href="#src.player.Player.has_acted" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-53">そのラウンド中アクションをする必要がないかのフラグ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-55">bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.is_folded">
+<span class="sig-name descname"><span class="pre">is_folded</span></span><a class="headerlink" href="#src.player.Player.is_folded" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-59">フォールドしているかのフラグ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-61">bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.is_all_in">
+<span class="sig-name descname"><span class="pre">is_all_in</span></span><a class="headerlink" href="#src.player.Player.is_all_in" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-65">オール・インしているかのフラグ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-67">bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.hand_category">
+<span class="sig-name descname"><span class="pre">hand_category</span></span><a class="headerlink" href="#src.player.Player.hand_category" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-71">プレイヤーが所持している手のカテゴリ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-73"><a class="reference internal" href="#src.hand_evaluator.HandCategory" title="src.hand_evaluator.HandCategory">HandCategory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.player.Player.hand_rank">
+<span class="sig-name descname"><span class="pre">hand_rank</span></span><a class="headerlink" href="#src.player.Player.hand_rank" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-77">プレイヤーが所持している手のランク。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-79">list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-82">[ ]: test_player</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.player.Player.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chips</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Playerクラスの初期化。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – プレイヤーの名前。</p></li>
+<li><p><strong>chips</strong> (<em>int</em>) – 初期チップ数。</p></li>
+<li><p><strong>input_handler</strong> (<a class="reference internal" href="#src.input_handler.InputHandler" title="src.input_handler.InputHandler"><em>InputHandler</em></a>) – 入力クラス。</p></li>
+<li><p><strong>is_cpu</strong> (<em>bool</em><em>, </em><em>optical</em>) – CPUであるかどうか。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.player.Player.bet">
+<span class="sig-name descname"><span class="pre">bet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player.bet" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーがベットするメソッド。</p>
+<p class="linemarker linemarker-3">指定された額をベットし、所持チップからその額を減少させる。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>amount</strong> (<em>int</em>) – ベットする額。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>実際にベットされた額。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.player.Player.fold">
+<span class="sig-name descname"><span class="pre">fold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player.fold" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーをフォールド状態にする。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.player.Player.select_action">
+<span class="sig-name descname"><span class="pre">select_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available_actions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player.select_action" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">利用可能なアクションの中からアクションを選択する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>available_actions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – 利用可能なアクションのリスト。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>選択されたアクション。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.player.Player.select_bet_amount">
+<span class="sig-name descname"><span class="pre">select_bet_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.player.Player.select_bet_amount" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">ベットまたはレイズの額を選択する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>min_amount</strong> (<em>int</em>) – 最小ベット額。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>選択されたベットまたはレイズの額。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.pot">
+<span id="src-pot-module"></span><h2>src.pot module<a class="headerlink" href="#module-src.pot" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pot.Pot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pot.</span></span><span class="sig-name descname"><span class="pre">Pot</span></span><a class="headerlink" href="#src.pot.Pot" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="linemarker linemarker-1">ゲーム内のポットを管理するクラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pot.Pot.total">
+<span class="sig-name descname"><span class="pre">total</span></span><a class="headerlink" href="#src.pot.Pot.total" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-5">ポットにあるチップの合計。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-7">int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pot.Pot.contributions">
+<span class="sig-name descname"><span class="pre">contributions</span></span><a class="headerlink" href="#src.pot.Pot.contributions" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-11">プレイヤーごとのチップの寄与額。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-13">dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.pot.Pot.max_contribution">
+<span class="sig-name descname"><span class="pre">max_contribution</span></span><a class="headerlink" href="#src.pot.Pot.max_contribution" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-17">このポットに対する最大寄与額。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p class="linemarker linemarker-19">int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Tests:</dt><dd><p class="linemarker linemarker-22">[ ]: test_pot</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pot.Pot.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pot.Pot.__init__" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">Potクラスの初期化。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pot.Pot.add_contribution">
+<span class="sig-name descname"><span class="pre">add_contribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pot.Pot.add_contribution" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">プレイヤーからの指定された量の寄与を追加する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>player</strong> (<em>str</em>) – プレイヤーの名前。</p></li>
+<li><p><strong>amount</strong> (<em>int</em>) – 寄与する額。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pot.Pot.get_contribution">
+<span class="sig-name descname"><span class="pre">get_contribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pot.Pot.get_contribution" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">指定されたプレイヤーの寄与額を返す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>player</strong> (<em>str</em>) – プレイヤーの名前。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>プレイヤーの寄与額。</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pot.Pot.get_eligible_players">
+<span class="sig-name descname"><span class="pre">get_eligible_players</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pot.Pot.get_eligible_players" title="Link to this definition"></a></dt>
+<dd><p class="linemarker linemarker-1">このポットを獲得する資格があるプレイヤーのリストを返す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>資格があるプレイヤーのリスト。</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#src.player.Player" title="src.player.Player">Player</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.pre_flop_hand_rank">
+<span id="src-pre-flop-hand-rank-module"></span><h2>src.pre_flop_hand_rank module<a class="headerlink" href="#module-src.pre_flop_hand_rank" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pre_flop_hand_rank.get_hand_rank">
+<span class="sig-prename descclassname"><span class="pre">src.pre_flop_hand_rank.</span></span><span class="sig-name descname"><span class="pre">get_hand_rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rankings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.pre_flop_hand_rank.get_hand_rank" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pre_flop_hand_rank.get_hand_rank_dict">
+<span class="sig-prename descclassname"><span class="pre">src.pre_flop_hand_rank.</span></span><span class="sig-name descname"><span class="pre">get_hand_rank_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.pre_flop_hand_rank.get_hand_rank_dict" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-src">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Cycrube.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

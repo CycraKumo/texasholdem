@@ -1,3 +1,6 @@
+import time
+
+
 class InputHandler:
     """ユーザーからの入力を処理するクラス。
 
@@ -25,7 +28,8 @@ class InputHandler:
             str: 入力されたプレイヤーの名前。
 
         """
-        return input(self.message_handler.get_message("enter_player_name"))
+        self.message_handler.get_message("user_input")
+        return input()
 
     def get_initial_chips(self):
         """プレイヤーの初期チップ数を入力として取得します。
@@ -36,9 +40,31 @@ class InputHandler:
         """
         while True:
             try:
-                return int(input(self.message_handler.get_message("enter_initial_chips")))
+                self.message_handler.get_message("enter_initial_chips")
+                return int(input())
             except ValueError:
-                print(self.message_handler.get_message("invalid_input"))
+                self.message_handler.get_message("invalid_input")
+
+    def select_table(self, tables):
+        """プレイするテーブルを入力として取得します。
+
+        Args:
+            tables (_type_): _description_
+
+        Returns:
+            _type_: _description_
+
+        """
+        while True:
+            try:
+                self.message_handler.get_message("select_table")
+                choice = int(input())
+                if choice == 0:
+                    return None
+                selected_table = tables[choice - 1]
+                return selected_table
+            except (ValueError, IndexError):
+                self.message_handler.get_message("invalid_input")
 
     def get_num_cpu(self):
         """参加するCPUの数を入力として取得します。
@@ -49,19 +75,21 @@ class InputHandler:
         """
         while True:
             try:
-                num_cpu = int(input(self.message_handler.get_message("enter_num_cpu")))
+                self.message_handler.get_message("enter_num_cpu")
+                num_cpu = int(input())
                 if 1 <= num_cpu <= 9:
                     return num_cpu
                 else:
-                    print(self.message_handler.get_message("invalid_range", min=1, max=9))
+                    self.message_handler.get_message("invalid_range", min=1, max=9)
             except ValueError:
-                print(self.message_handler.get_message("invalid_input"))
+                self.message_handler.get_message("invalid_input")
 
     def wait_for_user(self):
         """プレイヤーの入力を待機するメソッド。
 
         """
-        return input()
+        # return input()
+        return time.sleep(1.5)
 
     def continue_to_game(self):
         """ゲームを続けるかやめるかを選択するメソッド。
@@ -69,13 +97,25 @@ class InputHandler:
         """
         while True:
             try:
-                continue_to_game = int(input(self.message_handler.get_message("continue_to_game")))
+                self.message_handler.get_message("continue_to_game")
+                continue_to_game = int(input())
                 if 0 <= continue_to_game <= 1:
                     return continue_to_game
                 else:
-                    print(self.message_handler.get_message("invalid_range", min=0, max=1))
+                    self.message_handler.get_message("invalid_range", min=0, max=1)
             except ValueError:
-                print(self.message_handler.get_message("invalid_input"))
+                self.message_handler.get_message("invalid_input")
+
+    def rebuy_to_game(self):
+        """リバイしてゲームを続けるか選択するメソッド。
+
+        """
+        while True:
+            try:
+                self.message_handler.get_message("rebuy_chips")
+                return int(input())
+            except ValueError:
+                self.message_handler.get_message("invalid_input")
 
     def select_action(self, available_actions):
         """利用可能なアクションの中からアクションを選択する。
@@ -92,11 +132,12 @@ class InputHandler:
             available_actions_list.append(f"{i}: {action}")
 
         while True:
-            selected_index = input(self.message_handler.get_message("choose_action", available_actions=', '.join(available_actions_list))).lower()
+            self.message_handler.get_message("choose_action", available_actions=', '.join(available_actions_list))
+            selected_index = input().lower()
             if selected_index.isdigit() and 0 <= int(selected_index) < len(available_actions):
                 return available_actions[int(selected_index)]
             else:
-                print(self.message_handler.get_message("invalid_action"))
+                self.message_handler.get_message("invalid_action")
 
     def select_bet_amount(self, min_amount, max_amount):
         """ベットまたはレイズの額を選択する。
@@ -110,8 +151,9 @@ class InputHandler:
 
         """
         while True:
-            amount = int(input(self.message_handler.get_message("enter_bet_amount", min_amount=min_amount, max_amount=max_amount)))
+            self.message_handler.get_message("enter_bet_amount", min_amount=min_amount, max_amount=max_amount)
+            amount = int(input())
             if min_amount <= amount <= max_amount:
                 return amount
             else:
-                print(self.message_handler.get_message("invalid_bet_amount", min_amount=min_amount, max_amount=max_amount))
+                self.message_handler.get_message("invalid_bet_amount", min_amount=min_amount, max_amount=max_amount)
