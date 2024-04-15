@@ -1,7 +1,8 @@
 env/
 __pycache__/
+.pytest_cache/
+.vscode/
 *.pyc
 *.pyo
 *.egg-info/
 exe/
-data/
